@@ -5,7 +5,7 @@ open things based on local protocol handlers
 (work in progress)
 
 ```shell
-# npm install --save localopen
+npm install --global localopen
 ```
 
 ## background
@@ -43,9 +43,21 @@ localopen "dat:abcdef123"
 --> beaker --open dat:abcdef123
 ```
 
+then a proper demo
+
+```
+cat ./examples/config.json > ~/.config/localopen.json
+npm i -g localopen
+localopen "ssb:message:sha256:g3hPVPDEO1Aj_uPl0-J2NlhFB2bbFLIHlty-YuqFZ3w="
+```
+
 ## cli
 
-TODO
+with your config in `~/.config/localopen.json`
+
+```
+localopen <uri>
+```
 
 ## api
 

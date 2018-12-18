@@ -1,4 +1,3 @@
-// const { exec } = require('child_process')
 const Uri = require('uri-js')
 const QueryString = require('query-string')
 
@@ -11,14 +10,14 @@ function Opener (config) {
 
   return function open (uri) {
     const parsedUri = parseUri(uri)
-    const handler = handlers.find(([matcher, _]) => {
+    const handler = handlers.find(([matcher]) => {
       return matches(matcher, parsedUri)
     })
     if (handler == null) {
-      throw new Error('localopen: no match!')
+      throw new Error('localopen error: no match!')
     } else {
-      const [_, command] = handler
-      return `${command} --open ${uri}`
+      const [, command] = handler
+      return command
     }
   }
 }
@@ -38,11 +37,12 @@ function matches (matcher, parsedUri) {
       case 'string':
         return value.startsWith(expected)
       case 'object':
+        if (value === null) return expected === null
         return Object.keys(expected).every(queryKey => {
           return expected[queryKey] === value[queryKey]
         })
       default:
-        return expected == value
+        return expected === value
     }
   })
 }

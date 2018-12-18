@@ -4,7 +4,7 @@
   "description": "open things based on local protocol handlers",
   "main": "index.js",
   "scripts": {
-    "start": "node example",
+    "example": "node example",
     "style:format": "prettier-standard '**/*.js' '**/*.md'",
     "style:lint": "standard",
     "style": "npm-run-all -s style:format style:lint",
