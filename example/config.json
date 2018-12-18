@@ -1,0 +1,7 @@
+{
+  "dat:": "beaker",
+  "ssb:message?type=gathering": "infinite-game",
+  "ssb:message?type=chess_invite": "ssb-chess",
+  "ssb:feed": "holodex",
+  "ssb:": "patchwork"
+}
